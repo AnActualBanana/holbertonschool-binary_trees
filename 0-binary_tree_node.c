@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
-typedef struct binary_tree_s {
+typedef struct binary_tree_s 
+{
     int value;
     struct binary_tree_s *parent;
     struct binary_tree_s *left;
