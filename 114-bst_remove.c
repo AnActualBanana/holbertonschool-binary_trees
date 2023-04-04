@@ -15,8 +15,6 @@ bst_t *bst_remove(bst_t *root, int value)
         return root;
     }
 
-    // value == root->n: this is the node to remove
-
     if (root->left == NULL && root->right == NULL) {
         free(root);
         return NULL;
@@ -34,7 +32,6 @@ bst_t *bst_remove(bst_t *root, int value)
         return left;
     }
 
-    // the node has two children: find the in-order successor
     bst_t *successor = root->right;
     while (successor->left != NULL) {
         successor = successor->left;
