@@ -1,6 +1,10 @@
 #include "binary_trees.h"
 bst_t *bst_remove(bst_t *root, int value)
 {
+    bst_t *successor = root->right;
+    root->n = successor->n;
+    root->right = bst_remove(root->right, successor->n);
+
     if (root == NULL) {
         return NULL;
     }
@@ -32,11 +36,10 @@ bst_t *bst_remove(bst_t *root, int value)
         return left;
     }
 
-    bst_t *successor = root->right;
+
     while (successor->left != NULL) {
         successor = successor->left;
     }
-    root->n = successor->n;
-    root->right = bst_remove(root->right, successor->n);
+    
     return root;
 }
